@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "serve": "npx ts-node index.ts"
+  },
   "devDependencies": {
     "ts-node": "^10.6.0",
     "typescript": "^4.6.2"
