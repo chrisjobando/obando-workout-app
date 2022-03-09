@@ -19,12 +19,11 @@ const WorkoutPreviewCarousel: Component<WorkoutPreviewCarouselProps> = (
   const { workouts } = props;
 
   const [showAll, setShowAll] = createSignal<boolean>(false);
+  const carouselHeights = calculateCarouselHeights(workouts.length);
 
   const toggleShowAll = () => {
     setShowAll(!showAll());
   };
-
-  const carouselHeights = calculateCarouselHeights(workouts.length);
 
   return (
     <>
@@ -41,7 +40,7 @@ const WorkoutPreviewCarousel: Component<WorkoutPreviewCarouselProps> = (
       <button
         type="button"
         onclick={toggleShowAll}
-        className={style.WorkoutPreviewCarouselShowAll}
+        className={style.WorkoutPreviewCarouselShowAllBtn}
       >
         <Show when={showAll()} fallback={"Expand"}>
           Collapse
@@ -51,13 +50,15 @@ const WorkoutPreviewCarousel: Component<WorkoutPreviewCarouselProps> = (
   );
 };
 
+const { workoutPreviewHeight, workoutPreviewMarginTop } = style;
+const cardHeight = removeUnit(workoutPreviewHeight);
+const cardMarginTop = removeUnit(workoutPreviewMarginTop);
+
+const heightFormula = (numCards: number, numMargins: number) => {
+  return cardHeight * numCards + cardMarginTop * numMargins;
+};
+
 const calculateCarouselHeights = (numWorkouts: number): CarouselHeights => {
-  const { workoutPreviewHeight, workoutPreviewMarginTop } = style;
-  const cardHeight = removeUnit(workoutPreviewHeight);
-  const cardMarginTop = removeUnit(workoutPreviewMarginTop);
-  const heightFormula = (numCards: number, numMargins: number) => {
-    return cardHeight * numCards + cardMarginTop * numMargins;
-  };
   const minCarouselHeight = heightFormula(
     Math.min(numWorkouts, 3),
     Math.min(numWorkouts - 1, 2)

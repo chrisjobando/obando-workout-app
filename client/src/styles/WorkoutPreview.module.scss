@@ -9,11 +9,13 @@ $workoutPreviewHeight: calc(
 // WorkoutPreviewCarousel.tsx
 .WorkoutPreviewCarouselContainer {
   display: flex;
-  overflow: auto;
+  overflow: hidden;
   flex-direction: column;
 }
 
-.WorkoutPreviewCarouselShowAll {
+.WorkoutPreviewCarouselShowAllBtn {
+  width: 80px;
+  height: 32px;
   margin-top: 8px;
 }
 
@@ -30,7 +32,7 @@ $workoutPreviewHeight: calc(
   }
 
   .WorkoutPreviewTitle {
-    font-weight: 700;
+    font-weight: 500;
     font-size: $titleFontSize;
     line-height: $titleLineHeight;
   }
