@@ -7,7 +7,11 @@ import {
 } from "@urql/core";
 import { pipe, subscribe } from "wonka";
 import { SubscriptionClient } from "subscriptions-transport-ws";
-import { AddTodoMutation, SetDoneMutation, TodosSubscription } from "../graphql";
+import {
+  AddTodoMutation,
+  SetDoneMutation,
+  TodosSubscription,
+} from "../graphql";
 
 interface Todo {
   id: string;
