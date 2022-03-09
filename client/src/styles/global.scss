@@ -1,41 +1,30 @@
-*,
-*::before,
-*::after {
-	margin: 0;
-	padding: 0;
-
-	transition: all 0.2s ease-in-out;
-	box-sizing: border-box;
-}
-
 html {
-	width: 100vw;
-	height: 100vh;
-	scrollbar-width: thin;
-	scroll-behavior: smooth;
+  width: 100vw;
+  height: 100vh;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 
 body {
-	width: 100%;
-	height: 100%;
-	position: relative;
-  background: rgb(2,0,36);
-  background: linear-gradient(150deg, rgba(2,0,36,1) 0%, rgba(59,9,121,1) 60%, rgba(164,0,255,1) 100%);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 li {
-	list-style: none;
+  list-style: none;
 }
 
 button {
-	outline: none;
+  outline: none;
 }
 
 button:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
