@@ -1,8 +1,9 @@
+import { RouteDefinition } from "solid-app-router";
 import { lazy } from "solid-js";
 
-export const routes = [
+export const routes: RouteDefinition[] = [
   {
     path: "/",
-    // component: lazy(() => import("../pages/index.tsx")),
+    component: lazy(() => import("./pages/Home")),
   },
 ];
