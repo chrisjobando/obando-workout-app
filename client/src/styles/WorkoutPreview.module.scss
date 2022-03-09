@@ -1,0 +1,50 @@
+@import "./common.scss";
+
+$workoutPreviewTitleFontSize: 20px;
+$workoutPreviewNumExercisesFontSize: 14px;
+
+$workoutPreviewHeight: calc(
+  $workoutPreviewTitleFontSize * $titleLineHeight +
+    $workoutPreviewNumExercisesFontSize * $textLineHeight
+);
+$workoutPreviewMarginTop: 16px;
+
+// WorkoutPreviewCarousel.tsx
+.WorkoutPreviewCarouselContainer {
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+}
+
+.WorkoutPreviewCarouselShowAll {
+  margin-top: 8px;
+}
+
+// WorkoutPreview.tsx
+.WorkoutPreviewContainer {
+  width: 128px;
+  display: flex;
+  flex-direction: column;
+  height: $workoutPreviewHeight;
+  margin-top: $workoutPreviewMarginTop;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .WorkoutPreviewTitle {
+    font-weight: 700;
+    line-height: $titleLineHeight;
+    font-size: $workoutPreviewTitleFontSize;
+  }
+
+  .WorkoutPreviewText {
+    line-height: $textLineHeight;
+    font-size: $workoutPreviewNumExercisesFontSize;
+  }
+}
+
+:export {
+  workoutPreviewHeight: $workoutPreviewHeight;
+  workoutPreviewMarginTop: $workoutPreviewMarginTop;
+}
