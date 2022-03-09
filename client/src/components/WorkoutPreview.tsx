@@ -1,4 +1,4 @@
-import { Component, ComponentProps } from "solid-js";
+import { Component, ComponentProps, Show } from "solid-js";
 import styles from "../styles/WorkoutPreview.module.scss";
 import { WorkoutSimple } from "../types";
 
@@ -15,7 +15,12 @@ const WorkoutPreview: Component<WorkoutPreviewProps> = (
     <div className={styles.WorkoutPreviewContainer}>
       <span className={styles.WorkoutPreviewTitle}>{workout.title}</span>
       <span className={styles.WorkoutPreviewText}>
-        {workout.numExercises} EXERCISES
+        <Show
+          when={workout.numExercises !== 1}
+          fallback={`${workout.numExercises} EXERCISE`}
+        >
+          {workout.numExercises} EXERCISES
+        </Show>
       </span>
     </div>
   );

@@ -1,4 +1,4 @@
-import type { Component } from "solid-js";
+import { Component, Show } from "solid-js";
 import WorkoutPreviewCarousel from "../components/WorkoutPreviewCarousel";
 import style from "../styles/Home.module.scss";
 
@@ -11,17 +11,13 @@ const Home: Component = () => {
       <h1>Welcome back {user}!</h1>
       {/* <h2>Create a new workout:</h2> */}
       <h2>Saved workouts:</h2>
-      {savedWorkouts.length > 0 ? (
+      <Show when={savedWorkouts.length > 0} fallback={"No saved workouts."}>
         <WorkoutPreviewCarousel workouts={savedWorkouts} />
-      ) : (
-        "No saved workouts"
-      )}
+      </Show>
       <h2>Past workouts:</h2>
-      {pastWorkouts.length > 0 ? (
+      <Show when={pastWorkouts.length > 0} fallback={"No past workouts."}>
         <WorkoutPreviewCarousel workouts={pastWorkouts} />
-      ) : (
-        "No past workouts"
-      )}
+      </Show>
     </div>
   );
 };

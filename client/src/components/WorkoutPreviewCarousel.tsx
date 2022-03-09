@@ -1,4 +1,4 @@
-import { Component, ComponentProps, createSignal } from "solid-js";
+import { Component, ComponentProps, createSignal, For, Show } from "solid-js";
 import style from "../styles/WorkoutPreview.module.scss";
 import { WorkoutSimple } from "../types";
 import { removeUnit } from "../utils";
@@ -34,19 +34,19 @@ const WorkoutPreviewCarousel: Component<WorkoutPreviewCarouselProps> = (
           height: showAll() ? carouselHeights.max : carouselHeights.min,
         }}
       >
-        {workouts.map((workout) => (
-          <WorkoutPreview key={workout.id} workout={workout} />
-        ))}
+        <For each={workouts}>
+          {(workout) => <WorkoutPreview key={workout.id} workout={workout} />}
+        </For>
       </div>
-      {workouts.length > 0 && (
-        <button
-          type="button"
-          onclick={toggleShowAll}
-          className={style.WorkoutPreviewCarouselShowAll}
-        >
-          {showAll() ? "Collapse" : "Expand"}
-        </button>
-      )}
+      <button
+        type="button"
+        onclick={toggleShowAll}
+        className={style.WorkoutPreviewCarouselShowAll}
+      >
+        <Show when={showAll()} fallback={"Expand"}>
+          Collapse
+        </Show>
+      </button>
     </>
   );
 };
