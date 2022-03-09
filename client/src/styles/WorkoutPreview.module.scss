@@ -1,13 +1,10 @@
-@import "./common.scss";
+@import "./theme.scss";
 
-$workoutPreviewTitleFontSize: 20px;
-$workoutPreviewNumExercisesFontSize: 14px;
-
-$workoutPreviewHeight: calc(
-  $workoutPreviewTitleFontSize * $titleLineHeight +
-    $workoutPreviewNumExercisesFontSize * $textLineHeight
-);
+// Variables
 $workoutPreviewMarginTop: 16px;
+$workoutPreviewHeight: calc(
+  $titleFontSize * $titleLineHeight + $textFontSize * $textLineHeight
+);
 
 // WorkoutPreviewCarousel.tsx
 .WorkoutPreviewCarouselContainer {
@@ -34,13 +31,13 @@ $workoutPreviewMarginTop: 16px;
 
   .WorkoutPreviewTitle {
     font-weight: 700;
+    font-size: $titleFontSize;
     line-height: $titleLineHeight;
-    font-size: $workoutPreviewTitleFontSize;
   }
 
   .WorkoutPreviewText {
+    font-size: $textFontSize;
     line-height: $textLineHeight;
-    font-size: $workoutPreviewNumExercisesFontSize;
   }
 }
 
