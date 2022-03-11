@@ -1,23 +1,33 @@
 import { Component, Show } from "solid-js";
 import WorkoutPreviewCarousel from "../components/WorkoutPreviewCarousel";
-import style from "../styles/Home.module.scss";
+import { WorkoutSimple } from "../types";
 
 // TODO: Replace with graphql data
 import { pastWorkouts, savedWorkouts, user } from "../sample/HomeData";
 
+const createWorkoutCarousel = (
+  workoutList: WorkoutSimple[],
+  workoutType: string
+) => {
+  return (
+    <>
+      <h2>{workoutType} workouts:</h2>
+      <Show
+        when={workoutList.length > 0}
+        fallback={`No ${workoutType.toLowerCase()} workouts`}
+      >
+        <WorkoutPreviewCarousel workouts={workoutList} />
+      </Show>
+    </>
+  );
+};
+
 const Home: Component = () => {
   return (
-    <div className={style.HomeContainer}>
+    <div className={"PageContainer"}>
       <h1>Welcome back {user}!</h1>
-      {/* <h2>Create a new workout:</h2> */}
-      <h2>Saved workouts:</h2>
-      <Show when={savedWorkouts.length > 0} fallback={"No saved workouts."}>
-        <WorkoutPreviewCarousel workouts={savedWorkouts} />
-      </Show>
-      <h2>Past workouts:</h2>
-      <Show when={pastWorkouts.length > 0} fallback={"No past workouts."}>
-        <WorkoutPreviewCarousel workouts={pastWorkouts} />
-      </Show>
+      {createWorkoutCarousel(savedWorkouts, "Saved")}
+      {createWorkoutCarousel(pastWorkouts, "Past")}
     </div>
   );
 };
