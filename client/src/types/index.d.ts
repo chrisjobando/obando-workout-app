@@ -1,9 +1,17 @@
+export interface Exercise {
+  name: string;
+  repetitions: number[];
+  rests: number[];
+  sets: number;
+}
+
 export interface WorkoutSimple {
   id: string;
-  title: string;
+  name: string;
   numExercises: number;
 }
 
 export interface WorkoutFull extends WorkoutSimple {
-  // add exercises array here
+  exercises: Exercise[];
+  caloriesBurned?: number;
 }
