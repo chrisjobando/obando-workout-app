@@ -1,3 +1,4 @@
+import { Link } from "solid-app-router";
 import { Component, ComponentProps, Show } from "solid-js";
 import styles from "../styles/WorkoutPreview.module.scss";
 import { WorkoutSimple } from "../types";
@@ -13,7 +14,12 @@ const WorkoutPreview: Component<WorkoutPreviewProps> = (
 
   return (
     <div className={styles.WorkoutPreviewContainer}>
-      <span className={styles.WorkoutPreviewTitle}>{workout.title}</span>
+      <Link
+        href={`/workout/${workout.id}`}
+        className={styles.WorkoutPreviewLink}
+      >
+        <span className={styles.WorkoutPreviewTitle}>{workout.name}</span>
+      </Link>
       <span className={styles.WorkoutPreviewText}>
         <Show
           when={workout.numExercises !== 1}

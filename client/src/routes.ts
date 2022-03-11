@@ -6,4 +6,8 @@ export const routes: RouteDefinition[] = [
     path: "/",
     component: lazy(() => import("./pages/Home")),
   },
+  {
+    path: "/workout/:id",
+    component: lazy(() => import("./pages/workout/[id]")),
+  },
 ];
