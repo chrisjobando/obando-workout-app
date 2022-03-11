@@ -1,45 +1,48 @@
+@import "./reset.scss";
 @import "./theme.scss";
 
+/* Global Styles */
 html {
-  width: 100vw;
-  height: 100vh;
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
   font-family: "Fredoka", sans-serif;
 }
 
 body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
   color: $textColor;
-  position: relative;
   background-color: $bgColor;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
 }
 
 button {
   outline: none;
-  color: $textColor;
+  color: inherit;
   border-radius: 8px;
+  font-family: inherit;
   border: 1px solid $textColor;
   background-color: $lightBgColor;
-  font-family: "Fredoka", sans-serif;
 }
 
 button:hover {
   cursor: pointer;
 }
 
-h1,
-h2 {
-  font-weight: 600;
+/* Global Classes */
+.PageContainer {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-top: 64px;
+
+  h1 {
+    margin-bottom: 16px;
+    font-size: $headerFontSize;
+    font-weight: $secondaryFontWeight;
+  }
+
+  h2 {
+    margin-bottom: 12px;
+    font-size: $subHeaderFontSize;
+    font-weight: $secondaryFontWeight;
+  }
 }

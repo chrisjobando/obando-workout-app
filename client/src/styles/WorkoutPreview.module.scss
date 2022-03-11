@@ -16,7 +16,7 @@ $workoutPreviewHeight: calc(
 .WorkoutPreviewCarouselShowAllBtn {
   width: 80px;
   height: 32px;
-  margin-top: 8px;
+  margin: 12px 0;
 }
 
 // WorkoutPreview.tsx
@@ -31,13 +31,21 @@ $workoutPreviewHeight: calc(
     margin-top: 0;
   }
 
-  .WorkoutPreviewTitle {
-    font-weight: 500;
-    font-size: $titleFontSize;
-    line-height: $titleLineHeight;
+  .WorkoutPreviewLink {
+    text-decoration: underline;
+
+    &:hover {
+      color: $accentColor;
+    }
+
+    .WorkoutPreviewTitle {
+      font-size: $titleFontSize;
+      line-height: $titleLineHeight;
+    }
   }
 
   .WorkoutPreviewText {
+    color: $lightTextColor;
     font-size: $textFontSize;
     line-height: $textLineHeight;
   }
